@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import UserPosts from "./components/UserPosts";
 import { usersContext } from "./contexts/usersContext";
 import { useContext } from "react";
-import Banner from "./components/Banner";
+import Stats from "./components/Stats";
 
 function App() {
   const { stateUsers, loading } = useContext(usersContext);
@@ -14,7 +14,13 @@ function App() {
         <header>
           <Link to='/'>Home</Link>
         </header>
-        <Banner />
+        <p className='banner'>
+          Data present is from{" "}
+          <a href='https://jsonplaceholder.typicode.com/' target={"_blank"}>
+            jsonplaceholder
+          </a>{" "}
+          for demo purposes.
+        </p>
 
         <Routes>
           <Route

@@ -36,6 +36,56 @@ header a {
 }
 .banner {
   text-align: center;
+  height: 70px;
+}
+
+.stats-wrapper {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nav {
+  height: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+
+.nav span {
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav span:hover,
+.nav span:active {
+  text-decoration: underline;
+  color: red;
+}
+.stats {
+  height: auto;
+  /* background-color: #333; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.user-stats {
+  height: 80px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#profile-link {
+  text-transform: capitalize;
+  color: black;
+  text-decoration: none;
+  background-color: #fff;
 }
 
 .user-container {
@@ -52,7 +102,8 @@ header a {
   color: black;
   text-transform: capitalize;
   transition: all ease-in-out 0.3s;
-  background-color: black;
+  background-color: #333;
+  margin: 5px;
 }
 
 .user-container a:hover {
@@ -62,7 +113,8 @@ header a {
   font-size: 1.2rem;
 }
 .user-container a h2 {
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }
 .user-container a h3 {
   font-size: 0.8rem;
@@ -72,12 +124,86 @@ header a {
   height: 200px;
   width: 250px;
   color: white;
-
-  /* background-color: #fff; */
-
   display: flex;
-  /* justify-content: space-around; */
   flex-direction: column;
   padding: 5px;
   margin-right: 10px;
+}
+
+.meta-data {
+  font-size: small;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  width: inherit;
+  padding: 5px;
+}
+
+.post-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.btn {
+  height: 50px;
+  width: 100px;
+  background-color: rgb(43, 43, 180);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.post-details {
+  flex: 1;
+  width: 80%;
+  margin: auto;
+}
+.name,
+.edit-name {
+  display: flex;
+  align-items: center;
+}
+.name h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+.name img,
+.edit-name img {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.edit-name {
+  display: none;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+}
+
+.post-details h4 {
+  text-transform: lowercase;
+}
+
+.post {
+  height: 80%;
+}
+
+.post h3 {
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+.post p {
+  margin-top: 20px;
+  border: 1px solid #333;
+  padding: 10px;
+  min-height: 50%;
 }
