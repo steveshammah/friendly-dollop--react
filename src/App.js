@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from "./components/Home";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import UserPosts from "./components/UserPosts";
+import { usersContext } from "./contexts/usersContext";
+import { useContext } from "react";
+import Banner from "./components/Banner";
 
 function App() {
+  const { stateUsers, loading } = useContext(usersContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <header>
+          <Link to='/'>Home</Link>
+        </header>
+        <Banner />
+
+        <Routes>
+          <Route
+            path='/'
+            exact
+            element={<Home users={stateUsers} loading={loading} />}
+          />
+          <Route
+            path='/users/posts/:userId'
+            element={<UserPosts users={stateUsers} loading={loading} />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 }
