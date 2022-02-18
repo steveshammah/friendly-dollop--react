@@ -70,7 +70,7 @@ const UserPosts = ({ users }) => {
                 onChange={handleChange}
                 placeholder={user.name}
               />
-              <img src={saveIcon} onClick={() => setEditName(!editName)} />
+              <Image src={saveIcon} a onClick={() => setEditName(!editName)} />
             </Container>
             <Text fontWeight={300}>@{user.username}</Text>
             <Container

@@ -25,7 +25,8 @@ function App() {
         <a
           style={{ color: "red" }}
           href='https://jsonplaceholder.typicode.com/'
-          target={"_blank"}>
+          target={"_blank"}
+          rel='noreferrer'>
           jsonplaceholder api
         </a>
         .{" "}

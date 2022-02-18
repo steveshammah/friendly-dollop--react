@@ -31,8 +31,8 @@ const Stats = ({ stateUsers }) => {
           h={"40px"}
           textAlign='center'
           textDecor='none'
-          bg={`${active == "Apt" ? "black" : "gray.100"}`}
-          color={`${active == "Apt" ? "white" : "black"}`}>
+          bg={`${active === "Apt" ? "black" : "gray.100"}`}
+          color={`${active === "Apt" ? "white" : "black"}`}>
           Apartment
         </Badge>
         <Badge
@@ -42,8 +42,8 @@ const Stats = ({ stateUsers }) => {
           h={"40px"}
           w={"120px"}
           textAlign='center'
-          bg={`${active == "Suite" ? "black" : "gray.100"}`}
-          color={`${active == "Suite" ? "white" : "black"}`}
+          bg={`${active === "Suite" ? "black" : "gray.100"}`}
+          color={`${active === "Suite" ? "white" : "black"}`}
           textDecor='none'>
           Suite
         </Badge>
