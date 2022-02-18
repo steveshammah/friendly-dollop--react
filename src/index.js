@@ -3,14 +3,15 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import UsersState, { usersContext } from "./contexts/usersContext";
-import { useContext } from "react";
-import users from "./placeholder.json";
+import UsersState from "./contexts/usersContext";
+import { ChakraProvider } from "@chakra-ui/react";
 
 ReactDOM.render(
   <React.StrictMode>
     <UsersState>
-      <App />
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
     </UsersState>
   </React.StrictMode>,
   document.getElementById("root")

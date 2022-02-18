@@ -11,20 +11,19 @@ const UsersState = (props) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchData();
-      setLoading(false);
-    }, 3000);
+    fetchData();
+    // setLoading(false);
 
-    const fetchData = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/users/"
-      );
-      const data = await response.json();
-      setStateusers(data);
-    };
-    return () => {};
+    // One Second Delay After Promise Resolves
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, []);
+  const fetchData = async () => {
+    const response = await fetch("https://jsonplaceholder.typicode.com/users/");
+    const data = await response.json();
+    setStateusers(data);
+  };
 
   return (
     <usersContext.Provider value={{ stateUsers, loading }}>

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Spinner from "./Spinner";
 import editIcon from "../edit-icon.svg";
 import saveIcon from "../save-icon.svg";
+import { Box, Button, Image, Text, Input, Container } from "@chakra-ui/react";
 
 const UserPosts = ({ users }) => {
   let { userId } = useParams();
@@ -11,13 +12,9 @@ const UserPosts = ({ users }) => {
   const [loading, setLoading] = useState(true);
 
   const [user, setUser] = useState({});
-  //   const { stateUsers, loading } = useContext(usersContext);
-
-  //   const user = users.find((author) => author.userId === parseInt(userId));
 
   useEffect(() => {
     fetchData();
-
     return () => {};
   }, []);
 
@@ -33,9 +30,10 @@ const UserPosts = ({ users }) => {
     setUser(findUser);
     setUsersPosts(data);
 
+    // One Second Delay After Promise Resolves
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   const handleChange = (e) => {
@@ -48,30 +46,53 @@ const UserPosts = ({ users }) => {
       {loading && users ? (
         <Spinner />
       ) : (
-        <div className='post-section'>
-          <Link to='/' className='btn'>
-            Go Back
+        <Box p={3}>
+          <Link to='/'>
+            <Button bg='black' size='lg' colorScheme={"whiteAlpha.900"}>
+              Go Back
+            </Button>{" "}
           </Link>
-          <div className='post-details'>
-            <div className={`name ${editName && "active"}`}>
-              <h2>{user.name}</h2>{" "}
-              <img src={editIcon} onClick={() => setEditName(!editName)} />
-            </div>
-            <div className={`edit-name ${!editName ? " " : "active"}`}>
-              <input
+          <Box w={"100%"}>
+            <Text
+              fontWeight={600}
+              fontSize={"1.4rem"}
+              textTransform={"uppercase"}
+              mt={"4"}
+              className={`name ${editName && "active"}`}>
+              {user.name}
+              <Image src={editIcon} onClick={() => setEditName(!editName)} />
+            </Text>
+            <Container className={`edit-name ${!editName ? " " : "active"}`}>
+              <Input
                 type={"text"}
+                size='sm'
+                width={"200px"}
                 onChange={handleChange}
                 placeholder={user.name}
               />
               <img src={saveIcon} onClick={() => setEditName(!editName)} />
-            </div>
-            <h4>@{user.username}</h4>
-            <div className='post'>
-              <h3>Title: {usersPosts.title}</h3>
-              <p> {usersPosts.body}</p>
-            </div>
-          </div>
-        </div>
+            </Container>
+            <Text fontWeight={300}>@{user.username}</Text>
+            <Container
+              borderWidth={1}
+              borderRadius={"xl"}
+              p={1}
+              minH={300}
+              minW={"80%"}>
+              <Text
+                mt={2}
+                mb={5}
+                fontWeight={700}
+                fontSize={"1.2rem"}
+                textTransform={"capitalize"}
+                textAlign='center'>
+                {" "}
+                {usersPosts.title}
+              </Text>
+              <Text p={2}> {usersPosts.body}</Text>
+            </Container>
+          </Box>
+        </Box>
       )}
     </>
   );
